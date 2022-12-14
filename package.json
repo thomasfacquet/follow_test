@@ -1,0 +1,22 @@
+{
+  "name": "follow_test",
+  "version": "1.0.0",
+  "description": "e2e automated test Follow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasfacquet/follow_test.git"
+  },
+  "author": "Thomas Facquet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomasfacquet/follow_test/issues"
+  },
+  "homepage": "https://github.com/thomasfacquet/follow_test#readme",
+  "dependencies": {
+    "cypress": "^12.1.0"
+  }
+}
