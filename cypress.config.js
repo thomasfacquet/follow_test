@@ -2,8 +2,8 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+    chromeWebSecurity: true,
+    video: false,
+    baseUrl: "https://www.pokemon.com/fr/pokedex",
   },
 });
