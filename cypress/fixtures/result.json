@@ -10,5 +10,7 @@
   "bothRank": "0",
   "bothCount": "2",
   "both": "Paras",
-  "bothLevel": "046"
+  "bothLevel": "046",
+  "maxRange1": "20",
+  "maxRange2": "50"
 }

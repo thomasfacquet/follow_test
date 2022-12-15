@@ -1,5 +1,5 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-import { ResearchPage } from "../support/pages/researchPage";
+import { ResearchPage } from "../support/pages/ResearchPage";
 
 import * as result from "../fixtures/result.json";
 
@@ -18,7 +18,7 @@ Given("a user accessing Pokemon website", () => {
 When("a user research pokemon by type", () => {
   researchPage.getFilterType(result.typeRank).click();
   researchPage.getMinRange();
-  researchPage.getMaxRange().clear().type(20);
+  researchPage.getMaxRange().clear().type(result.maxRange1);
   researchPage.getResearchButton().click({ multiple: true });
 });
 
@@ -31,7 +31,7 @@ Then("pokemon list by type is displayed", () => {
 When("a user research pokemon by weakness", () => {
   researchPage.getFilterWeakness(result.weaknessRank).click();
   researchPage.getMinRange();
-  researchPage.getMaxRange().clear().type(20);
+  researchPage.getMaxRange().clear().type(result.maxRange1);
   researchPage.getResearchButton().click({ multiple: true });
 });
 
@@ -45,7 +45,7 @@ When("a user research pokemon by type and weakness", () => {
   researchPage.getFilterType(result.bothRank).click();
   researchPage.getFilterWeakness(result.bothRank).click();
   researchPage.getMinRange();
-  researchPage.getMaxRange().clear().type(50);
+  researchPage.getMaxRange().clear().type(result.maxRange2);
   researchPage.getResearchButton().click({ multiple: true });
 });
 
