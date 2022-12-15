@@ -9,9 +9,7 @@ Given("a user accessing Pokemon website", () => {
   cy.wait("@displayOk");
   researchPage.getAlertDialog();
   researchPage.getRefuseCookies().click();
-  cy.get(".filter-toggle-span")
-    .contains("Afficher la recherche avancée")
-    .click();
+  researchPage.getAdvancedResearch().click();
   cy.get(".pokedex-filter-tw-list").should("be.visible");
   cy.get("[id=search]")
     .should("be.visible")
