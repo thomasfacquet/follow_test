@@ -19,6 +19,11 @@
   },
   "homepage": "https://github.com/thomasfacquet/follow_test#readme",
   "dependencies": {
-    "cypress": "^12.1.0"
+    "@badeball/cypress-cucumber-preprocessor": "^15.0.0"
+  },
+  "devDependencies": {
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
+    "cypress": "^12.1.0",
+    "esbuild": "^0.16.7"
   }
 }
