@@ -1,11 +1,14 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+import { ResearchPage } from "../support/pages/researchPage";
+
+const researchPage = new ResearchPage();
 
 Given("a user accessing Pokemon website", () => {
   cy.intercept("https://www.pokemon.com/pcom/api/gus/pcom/fr/").as("displayOk");
   cy.visit("/");
   cy.wait("@displayOk");
-  cy.get("[role=alertdialog]").should("be.visible");
-  cy.get("[id=onetrust-reject-all-handler]").should("be.visible").click();
+  researchPage.getAlertDialog();
+  researchPage.getRefuseCookies().click();
   cy.get(".filter-toggle-span")
     .contains("Afficher la recherche avancée")
     .click();
