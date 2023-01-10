@@ -2,6 +2,7 @@ const { defineConfig } = require("cypress");
 const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
 const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
 const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esbuild");
+const allureWriter = require("@shelex/cypress-allure-plugin/writer");
 
 async function setupNodeEvents(on, config) {
   // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
@@ -37,7 +38,11 @@ module.exports = defineConfig({
     chromeWebSecurity: true,
     video: false,
     baseUrl: "https://www.pokemon.com/fr/pokedex",
-    specPattern: "**/*.feature",
-    setupNodeEvents,
+    specPattern: "cypress/e2e/*.feature",
+    setupNodeEvents(on, config) {
+      allureWriter(on, config);
+      return config;
+    },
   },
+  excludeSpecpattern: ["*.js", "*.ts", "*.md"],
 });
