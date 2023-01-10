@@ -1,8 +1,7 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import { ResearchPage } from "../support/pages/ResearchPage";
 
-import { result } from "../fixtures/result.json";
-
+import * as result from "../fixtures/result.json";
 const researchPage = new ResearchPage();
 
 Given("a user accessing Pokemon website", () => {

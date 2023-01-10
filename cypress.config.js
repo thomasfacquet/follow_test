@@ -14,10 +14,11 @@ async function setupNodeEvents(on, config) {
       plugins: [createEsbuildPlugin.default(config)],
     })
   );
-
-  // Make sure to return the config object as it might have been modified by the plugin.
+  allureWriter(on, config);
   return config;
 }
+
+// Make sure to return the config object as it might have been modified by the plugin.
 
 module.exports = defineConfig({
   projectId: "cuszxx",
@@ -38,11 +39,7 @@ module.exports = defineConfig({
     chromeWebSecurity: true,
     video: false,
     baseUrl: "https://www.pokemon.com/fr/pokedex",
-    specPattern: "cypress/e2e/*.feature",
-    setupNodeEvents(on, config) {
-      allureWriter(on, config);
-      return config;
-    },
+    specPattern: "**/*.feature",
+    setupNodeEvents,
   },
-  excludeSpecpattern: ["*.js", "*.ts", "*.md"],
 });
